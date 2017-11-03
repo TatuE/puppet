@@ -30,6 +30,7 @@ class apache {
 
 	package {'libapache2-mod-php':
 		ensure => installed,
+		allowcdrom => true,
 		require => Package ['apache2'],
 		}
 
