@@ -1,6 +1,5 @@
 class mysql {
-	$mysqladmin = '/usr/bin/mysqladmin'
-
+	
 	package {'mysql-server':
 		ensure => installed,
 	}
@@ -17,7 +16,8 @@ class mysql {
 	}
 
 	exec {'mysqlpasswd':
-		command => "${mysqladmin} -u root password salasana",
+		path => ['/bin', '/usr/bin'],
+		command => "mysqladmin -uroot password salasana",
 		require => Package ['mysql-server'],
 		notify => Service ['mysql'],
 	}
