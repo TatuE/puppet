@@ -4,6 +4,7 @@ class ufw {
 	
 	package { 'ufw':
 		ensure => installed,
+		allowcdrom => true,
 	}
 	
 	exec { 'ufw_enable':
