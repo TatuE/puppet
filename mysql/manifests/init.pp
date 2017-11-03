@@ -2,15 +2,18 @@ class mysql {
 	
 	package {'mysql-server':
 		ensure => installed,
+		allowcdrom => true,	
 	}
 
 	package {'mysql-client':
 		ensure => installed,
+		allowcdrom => true,
 		require => Package ['mysql-server'],
 	}
 
 	package {'php-mysql':
 		ensure => installed,
+		allowcdrom => true,
 		require => Package ['mysql-client'],
 		notify => Service ['mysql'],
 	}
